@@ -17,11 +17,12 @@ function begin_html() {
   </style>
 </head>
 <body>
-  <h2>Twitter microservice</h2><br> 
+  <h2>Twitter microservice</h2><br>
+  <h3>Ecrire un Tweet :</h3>
     <form action="postTweet.php" method="post">
 
         <Label>Utilisateur</Label><br> 
-        <input type="text" name="user" required><br><br>
+        <input type="text" name="user" maxlength="20" required><br><br>
 
         <Label>Message</Label><br> 
         <textarea name="message" maxlength="1000" cols=70 rows=5 required></textarea><br><br>
@@ -29,7 +30,8 @@ function begin_html() {
         <input type="submit" name="submit" value="Envoyer">
 
     </form><br><br>
-
+    <h3>Rechercher Tweets :</h3>
+    <p>recherche par utilisateurs ou par hashtags (#) </p>
     <form action="ListTweet.php" method="get">
 
       <input type="text" name="recherche" required>

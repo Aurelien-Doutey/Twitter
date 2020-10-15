@@ -1,4 +1,3 @@
-
 <?php
 
 if(isset($_GET)){ // test si le formulaire get est envoyé
@@ -11,7 +10,7 @@ if(isset($_GET)){ // test si le formulaire get est envoyé
     
     function DisplayTweet($dbh,$data){ // Affiche les tweets
         if ($data['type'] == "#") { 
-            $stmt = $dbh->prepare("SELECT * FROM tweet WHERE htags LIKE (:recherche)"); // recherche si les message contiennent le hashtag
+            $stmt = $dbh->prepare("SELECT * FROM tweet WHERE htags LIKE (:recherche)"); // recherche si les messages contiennent le hashtag
             $stmt->bindParam(':recherche', $htag); 
             $htag = '%'.$data['recherche'].'%'; // Affecte le paramètre
             $stmt->execute();

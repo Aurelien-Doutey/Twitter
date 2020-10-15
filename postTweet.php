@@ -1,6 +1,6 @@
 <?php
 
-if(isset($_POST)){ // test si le formlaire post est envoyé
+if(isset($_POST)){ // test si le formulaire post est envoyé
     $dbh = new PDO('mysql:host=localhost;dbname=twitter','root', ''); // connexion bd mysql
 
     preg_match_all('/#([^\s]+)/', $_POST['message'], $htags); // cherche les hashtags dans le tweet
@@ -19,7 +19,7 @@ if(isset($_POST)){ // test si le formlaire post est envoyé
     }
 
     function viewjson($dbh){ // Affiche tout les tweet format json
-        $stmt = $dbh->prepare("SELECT * FROM tweet"); // Requète sql affichage
+        $stmt = $dbh->prepare("SELECT * FROM tweet"); // Requête sql affichage
         $stmt->execute();
         $arr = array();
         while($opt = $stmt->fetch()){
@@ -28,8 +28,8 @@ if(isset($_POST)){ // test si le formlaire post est envoyé
         echo json_encode($arr);
     }
 
-    function insertmysql($dbh, $data){ // Ajoute les données a la base de données
-        $stmt = $dbh->prepare("INSERT INTO tweet (ID,user,msg,htags,date) VALUES (:ID,:user,:msg,:htags,:date)"); // Requète sql insertion
+    function insertmysql($dbh, $data){ // Ajoute les données à la base de données
+        $stmt = $dbh->prepare("INSERT INTO tweet (ID,user,msg,htags,date) VALUES (:ID,:user,:msg,:htags,:date)"); // Requête sql insertion
         $stmt->bindParam(':ID', $id);
         $stmt->bindParam(':user', $user);
         $stmt->bindParam(':msg', $message);
